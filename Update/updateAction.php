@@ -1,9 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['email'])) {
-    // Redirect to the login page if not logged in
+if (!isset($_SESSION['authenticate']) || $_SESSION['authenticate'] !== true) {
     header("Location: ../Login/login.php");
-    exit();
+	exit();
 }
 
 $servername = "localhost";

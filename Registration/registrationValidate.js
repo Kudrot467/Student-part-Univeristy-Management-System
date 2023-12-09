@@ -1,4 +1,5 @@
 function validateRegistrationForm(form){
+    const fileName = form.image.value;
     const firstname = form.firstname.value;
     const lastname = form.lastname.value;
     const fathername = form.fathername.value;
@@ -61,8 +62,14 @@ function validateRegistrationForm(form){
     // console.log(allFields);
 
     
+    
+           
+
+            // Check if a file is selected
+           
 
 
+const imageErr = document.getElementById('imageErr');
 const firstnameErr = document.getElementById('firstnameErr');
 const lastnameErr = document.getElementById('lastnameErr');
 const fathernameErr = document.getElementById('fathernameErr');
@@ -91,7 +98,7 @@ const usernameErr = document.getElementById('usernameErr');
 const passErr = document.getElementById('passwordErr');
 const confirm_passwordErr = document.getElementById('confirm_passwordErr');
 
-
+imageErr.innerHTML="";
 emailErr.innerHTML = "";
 passErr.innerHTML = "";
 firstnameErr.innerHTML = "";
@@ -120,6 +127,13 @@ hscBoardErr.innerHTML = "";
 usernameErr.innerHTML = "";
 passErr.innerHTML = "";
 confirm_passwordErr.innerHTML = "";
+
+
+if (!fileName) {
+    imageErr.innerHTML='Upload your image!';
+    imageErr.style.color="red";
+    flag= false;
+}
 
 if (firstname === "") {
     firstnameErr.innerHTML = 'Please enter your first name.';

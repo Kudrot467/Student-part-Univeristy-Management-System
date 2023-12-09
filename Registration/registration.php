@@ -39,6 +39,7 @@ $_SESSION['confirm_password'] = "";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registration</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="registrationValidate.js"></script>
 </head>
 
 <body>
@@ -46,8 +47,13 @@ $_SESSION['confirm_password'] = "";
         <?php include('../Header/header2.php') ?>
     </header>
     <main>
-        <form class="registration" method="post" action="registrationAction.php" enctype="multipart/form-data"
-            novalidate>
+        <form 
+         class="registration"
+         method="post" 
+         action="registrationAction.php" 
+         enctype="multipart/form-data"
+         onsubmit="return validateRegistrationForm(this)" 
+        novalidate>
             <h1>Registration</h1>
             <?php
             if (isset($_SESSION['me'])) {
@@ -67,6 +73,7 @@ $_SESSION['confirm_password'] = "";
                             <td><label for="firstname"><b>First Name</b> </label></td>
                             <td>: <input type="text" name="firstname" id="firstname"
                                     value="<?php echo isset($_SESSION['firstname']) ? $_SESSION['firstname'] : "" ?>">
+                                    <span id="firstnameErr"></span>
                                 <?php echo isset($_SESSION['fnameErr']) ? $_SESSION['fnameErr'] : "" ?>
                             </td>
                         </tr>
@@ -74,6 +81,7 @@ $_SESSION['confirm_password'] = "";
                             <td><label for="lastname"><b>Last Name</b> </label></td>
                             <td>: <input type="text" name="lastname" id="lastname"
                                     value="<?php echo isset($_SESSION['lastname']) ? $_SESSION['lastname'] : "" ?>">
+                                    <span id="lastnameErr"></span>
                                 <?php echo isset($_SESSION['lnameErr']) ? $_SESSION['lnameErr'] : "" ?>
                             </td>
                         </tr>
@@ -81,6 +89,7 @@ $_SESSION['confirm_password'] = "";
                             <td><label for="fathername"><b>Father's Name</b> </label> </td>
                             <td>: <input type="text" name="fathername" id="fathername"
                                     value="<?php echo isset($_SESSION['fathername']) ? $_SESSION['fathername'] : "" ?>">
+                                    <span id="fathernameErr"></span>
                                 <?php echo isset($_SESSION['fonameErr']) ? $_SESSION['fonameErr'] : "" ?>
                             </td>
                         </tr>
@@ -88,6 +97,7 @@ $_SESSION['confirm_password'] = "";
                             <td><label for="mothername"><b>Mother's Name <b></label> </td>
                             <td>: <input type="text" name="mothername" id="mothername"
                                     value="<?php echo isset($_SESSION['mothername']) ? $_SESSION['mothername'] : "" ?>">
+                                    <span id="mothernameErr"></span>
                                 <?php echo isset($_SESSION['mnameErr']) ? $_SESSION['mnameErr'] : "" ?>
                             </td>
                         </tr>
@@ -96,6 +106,7 @@ $_SESSION['confirm_password'] = "";
                             <td><label for="d_birth"> Date Of Birth </label> </td>
                             <td>: <input type="date" name="d_birth" id="d_birth"
                                     value="<?php echo isset($_SESSION['d_birth']) ? $_SESSION['d_birth'] : "" ?>">
+                                    <span id="d_birthErr"></span>
                                 <?php echo isset($_SESSION['d_birthErr']) ? $_SESSION['d_birthErr'] : "" ?>
                             </td>
                         </tr>
@@ -112,6 +123,7 @@ $_SESSION['confirm_password'] = "";
                                 <input type="radio" id="other" name="gender" value="other"
                                     value="<?php echo isset($_SESSION['gender']) ? $_SESSION['gender'] : "" ?>">
                                 <label for="other">Other</label>
+                                <span id="genderErr"></span>
                                 <?php echo isset($_SESSION['genderErr']) ? $_SESSION['genderErr'] : "" ?>
                             </td>
 
@@ -131,6 +143,7 @@ $_SESSION['confirm_password'] = "";
                                     <option value="O+">O+</option>
                                     <option value="O-">O-</option>
                                 </select>
+                                <span id="bloodgroupErr"></span>
                                 <?php echo isset($_SESSION['groupErr']) ? $_SESSION['groupErr'] : "" ?>
                             </td>
                         </tr>
@@ -145,6 +158,7 @@ $_SESSION['confirm_password'] = "";
                                     <option value="Christian">Christian</option>
                                     <option value="Buddhist">Buddhist</option>
                                 </select>
+                                <span id="religionErr"></span>
                                 <?php echo isset($_SESSION['religionErr']) ? $_SESSION['religionErr'] : "" ?>
                             </td>
                         </tr>
@@ -158,6 +172,7 @@ $_SESSION['confirm_password'] = "";
                             <td><label for="Email">Email:</label></td>
                             <td>: <input type="text" name="email" id="Email"
                                     value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : "" ?>">
+                                    <span id="emailErr"></span>
                                 <?php echo isset($_SESSION['emailErr']) ? $_SESSION['emailErr'] : "" ?>
                             </td>
                         </tr>
@@ -165,6 +180,7 @@ $_SESSION['confirm_password'] = "";
                             <td><label for="Phone/Mobile">Phone/Mobile:</label></td>
                             <td>: <input type="text" name="Phone/Mobile" id="Phone/Mobile"
                                     value="<?php echo isset($_SESSION['phone']) ? $_SESSION['phone'] : "" ?>">
+                                    <span id="phoneErr"></span>
                                 <?php echo isset($_SESSION['phoneErr']) ? $_SESSION['phoneErr'] : "" ?>
                             </td>
                         </tr>
@@ -189,6 +205,7 @@ $_SESSION['confirm_password'] = "";
                                                         <option value="UK">UK</option>
                                                         <option value="Bangladesh">Bangladesh</option>
                                                     </select>
+                                                    <span id="countryErr"></span>
                                                     <?php echo isset($_SESSION['countryErr']) ? $_SESSION['countryErr'] : "" ?>
                                                     <select name="Division" id="Division"
                                                         value="<?php echo isset($_SESSION['division']) ? $_SESSION['division'] : "" ?>">
@@ -202,6 +219,7 @@ $_SESSION['confirm_password'] = "";
                                                         <option value="Rangpur">Rangpur</option>
                                                         <option value="Barsal">Barisal</option>
                                                     </select>
+                                                    <span id="divisionErr"></span>
                                                     <?php echo isset($_SESSION['divisionErr']) ? $_SESSION['divisionErr'] : "" ?>
                                                 </p>
                                                 </p>
@@ -209,6 +227,7 @@ $_SESSION['confirm_password'] = "";
                                                     <textarea name="rsc" id="rsc" placeholder="Road/Street/City"
                                                         rows="6" cols="30"
                                                         value="<?php echo isset($_SESSION['rsc']) ? $_SESSION['rsc'] : "" ?>"></textarea>
+                                                        <span id="rscErr"></span>
                                                     <?php echo isset($_SESSION['rscErr']) ? $_SESSION['rscErr'] : "" ?>
                                                 </p>
                                                 </p>
@@ -216,6 +235,7 @@ $_SESSION['confirm_password'] = "";
                                                     <input type="text" name="postcode" id="postcode"
                                                         placeholder="Post Code"
                                                         value="<?php echo isset($_SESSION['postcode']) ? $_SESSION['postcode'] : "" ?>">
+                                                        <span id="postcodeErr"></span>
                                                     <?php echo isset($_SESSION['postcodeErr']) ? $_SESSION['postcodeErr'] : "" ?>
                                                 </p>
                                                 </p>
@@ -240,6 +260,7 @@ $_SESSION['confirm_password'] = "";
                         <td><label for="ssc">SSC</label></td>
                         <td>: <input type="text" placeholder="enter ssc passing year" name="ssc" id="ssc"
                                 value="<?php echo isset($_SESSION['ssc']) ? $_SESSION['ssc'] : "" ?>">
+                                <span id="sscErr"></span>
                             <?php echo isset($_SESSION['sscErr']) ? $_SESSION['sscErr'] : "" ?>
                         </td>
                         <td>
@@ -250,6 +271,7 @@ $_SESSION['confirm_password'] = "";
                                 <option value="Arts">Arts</option>
                                 <option value="Commerce">Commerce</option>
                             </select>
+                            <span id="sscDepartmentErr"></span>
                             <?php echo isset($_SESSION['departmentErr']) ? $_SESSION['departmentErr'] : "" ?>
                         </td>
                     </tr>
@@ -258,6 +280,7 @@ $_SESSION['confirm_password'] = "";
                         <td>: <input type="institution" placeholder="enter your institution name" name="sscInstitution"
                                 id="institution"
                                 value="<?php echo isset($_SESSION['sscInstitution']) ? $_SESSION['sscInstitution'] : "" ?>">
+                                <span id="sscInstitutionErr"></span>
                             <?php echo isset($_SESSION['institutionErr']) ? $_SESSION['institutionErr'] : "" ?>
                         </td>
                     </tr>
@@ -265,6 +288,7 @@ $_SESSION['confirm_password'] = "";
                         <td><label for="cgpa">CGPA </label></td>
                         <td>: <input type="text" placeholder="0.00" name="sscCgpa" id="cgpa"
                                 value="<?php echo isset($_SESSION['sscCgpa']) ? $_SESSION['sscCgpa'] : "" ?>">
+                                <span id="sscCgpaErr"></span>
                             <?php echo isset($_SESSION['cgpaErr']) ? $_SESSION['cgpaErr'] : "" ?>
                         </td>
                         <td>
@@ -280,6 +304,7 @@ $_SESSION['confirm_password'] = "";
                                 <option value="Rangpur">Rangpur</option>
                                 <option value="Barsal">Barisal</option>
                             </select>
+                            <span id="sscBoardErr"></span>
                             <?php echo isset($_SESSION['sscBoardErr']) ? $_SESSION['sscBoardErr'] : "" ?>
                         </td>
                     </tr>
@@ -291,6 +316,7 @@ $_SESSION['confirm_password'] = "";
                         <td><label for="hsc">HSC</label></td>
                         <td>: <input type="text" placeholder="enter hsc passing year" name="hsc" id="hsc"
                                 value="<?php echo isset($_SESSION['hsc']) ? $_SESSION['hsc'] : "" ?>">
+                                <span id="hscErr"></span>
                             <?php echo isset($_SESSION['hscErr']) ? $_SESSION['hscErr'] : "" ?>
                         </td>
                         <td>
@@ -301,6 +327,7 @@ $_SESSION['confirm_password'] = "";
                                 <option value="Arts">Arts</option>
                                 <option value="Commerce">Commerce</option>
                             </select>
+                            <span id="hscDepartmentErr"></span>
                             <?php echo isset($_SESSION['departmentErr']) ? $_SESSION['departmentErr'] : "" ?>
                         </td>
                     </tr>
@@ -309,6 +336,7 @@ $_SESSION['confirm_password'] = "";
                         <td>: <input type="institution" placeholder="enter your institution name" name="hscInstitution"
                                 id="institution"
                                 value="<?php echo isset($_SESSION['hscInstitution']) ? $_SESSION['hscInstitution'] : "" ?>">
+                                <span id="hscInstitutionErr"></span>
                             <?php echo isset($_SESSION['institutionErr']) ? $_SESSION['institutionErr'] : "" ?>
                         </td>
                     </tr>
@@ -316,6 +344,7 @@ $_SESSION['confirm_password'] = "";
                         <td><label for="cgpa">CGPA </label></td>
                         <td>: <input type="text" placeholder="0.00" name="hscCgpa" id="cgpa"
                                 value="<?php echo isset($_SESSION['hscCgpa']) ? $_SESSION['hscCgpa'] : "" ?>">
+                                <span id="hscCgpaErr"></span>
                             <?php echo isset($_SESSION['cgpaErr']) ? $_SESSION['cgpaErr'] : "" ?>
                         </td>
                         <td>
@@ -331,6 +360,7 @@ $_SESSION['confirm_password'] = "";
                                 <option value="Rangpur">Rangpur</option>
                                 <option value="Barisal">Barisal</option>
                             </select>
+                            <span id="hscBoardErr"></span>
                             <?php echo isset($_SESSION['hscBoardErr']) ? $_SESSION['hscBoardErr'] : "" ?>
                         </td>
                     </tr>
@@ -346,6 +376,7 @@ $_SESSION['confirm_password'] = "";
                         <td><label for="username">Username </label></td>
                         <td>: <input type="text" name="username" id="Username"
                                 value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : "" ?>">
+                                <span id="usernameErr"></span>
                             <?php echo isset($_SESSION['usernameErr']) ? $_SESSION['usernameErr'] : "" ?>
                         </td>
                     </tr>
@@ -353,6 +384,7 @@ $_SESSION['confirm_password'] = "";
                         <td><label for="password">Password </label></td>
                         <td>: <input type="password" name="password" id="password"
                                 value="<?php echo isset($_SESSION['password']) ? $_SESSION['password'] : "" ?>">
+                                <span id="passwordErr"></span>
                             <?php echo isset($_SESSION['passwordErr']) ? $_SESSION['passwordErr'] : "" ?>
                         </td>
                     </tr>
@@ -360,6 +392,7 @@ $_SESSION['confirm_password'] = "";
                         <td><label for="confirm_password">Confirm Password </label></td>
                         <td>: <input type="password" name="confirm_password" id="confirm_password"
                                 value="<?php echo isset($_SESSION['confirm_password']) ? $_SESSION['confirm_password'] : "" ?>">
+                                <span id="confirm_passwordErr"></span>
                             <?php echo isset($_SESSION['passwordErr']) ? $_SESSION['passwordErr'] : "" ?>
                         </td>
                        

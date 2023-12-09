@@ -20,7 +20,12 @@ session_start();
     <main>
         <div class="login-container">
    
-            <form class="login" method="POST" action="loginAction.php" onsubmit="return validateLoginForm(this)"  novalidate>
+            <form 
+            class="login" 
+            method="POST" 
+            action="loginAction.php" 
+            onsubmit="return validateLoginForm(this)" 
+             novalidate>
                    <div class="login-title-container">
                    <img width="100px" height="100px" src="../logo-without-name.png" alt="">
                    <h1 class="login-title"> <span id="rose">ROSE</span> UNIVERSITY</h1>

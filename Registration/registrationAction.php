@@ -354,7 +354,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         $stmt = $conn->prepare($query);
         $stmt->bind_param(
-            "ssssssssssssssssssssssss",
+            "sssssssssssssssssssssssss",
             $firstname,
             $lastname,
             $fathername,
@@ -367,8 +367,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $phone,
             $country,
             $division,
-            $username,
-            $password,
             $ssc,
             $sscInstitution,
             $sscCgpa,
@@ -379,8 +377,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $hscCgpa,
             $hscBoard,
             $hscDepartment,
+            $username,
+            $password,
             $name
         );
+        
 
 
         $insert = $stmt->execute();

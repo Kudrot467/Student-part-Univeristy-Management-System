@@ -1,0 +1,403 @@
+*{
+    margin: 0;
+}
+
+/* 
+nav related styles
+*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav>ul {
+    display: flex;
+    align-items: center;
+}
+nav li {
+    list-style: none;
+    margin-right: 50px;
+}
+nav a {
+    text-decoration: none;
+    color: azure;
+    font-size: 18px;
+}
+.nav-items{
+    background-color: #0E74BC;
+}
+#nav-img{
+    background-color: azure;
+    text-align: center;
+    border-radius: 100%;
+}
+.nav-title {
+    color: azure;
+    font-size: 30px;
+    font-weight: 800;
+    padding-left: 10px;
+}
+/* Banner related Styles */
+.banner-img{
+    width: 100%;
+    height: 120px;
+}
+.banner{
+    padding: 30px 30px 0px 150px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    background-image: url('./images/28466.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+.banner-description{
+    color: #0E74BC;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 30px;
+    width: 50%;
+} 
+.banner-title{
+    color: #0E74BC;
+    font-size: 35px;
+    font-weight: 700;
+    width: 75%;
+    margin-top: 100px;
+}
+.banner-link{
+    color: #FFF;
+}
+.btn-primary{
+    border-radius: 8px;
+    background: #18BEBC;
+    border: 0;
+    padding: 20px 43px;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 30px;
+}
+.footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:black;
+    height: 100%;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 100px;
+}
+.footer-para{
+    padding-left: 20px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.icons{
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+i{
+    margin-right: 20px;
+}
+.general-information {
+    background-color: white;
+    width: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.general-title{
+    background-color: #4292cb;
+    color: azure;
+    font-size: 20px;
+    font-weight: 600;
+}
+.upload{
+    background-color: white;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.2);
+    height: 100px;
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+}
+.navigate-login{
+    display: flex;
+}
+#acc-info{
+    width: 50%;
+}
+.registration{
+    max-width: 1180px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.up-info-container{
+    display: flex;
+    gap: 20px;
+}
+#academic-info{
+    margin-top: 30px;
+    width: 100%;
+}
+.submit{
+    margin-left: 30px;
+    display: flex;
+    justify-content: end;
+}
+.login{
+    background-color: white;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+}
+.login-container{
+   max-width: 700px;
+   margin-right: auto;
+   margin-left: auto;
+   height: 100%;
+   padding-left: 150px;
+   padding-top: 50px;
+}
+.custom-input {
+    padding: 10px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc;
+    box-sizing: border-box; 
+    font-size: 14px; 
+    width: 100%;
+}
+.email{
+    font-size: 18px;
+    color: #0E74BC;
+}
+.password{
+    font-size: 18px;
+    color: #0E74BC;
+}
+#btn-login{
+    border-radius: 8px;
+    background:#4292cb ;
+    border: 0;
+    padding: 10px;
+    color: #FFF;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.login-page-content{
+    display: flex;
+    font-size: large;
+    margin-top: 20px;
+}
+.login-page-forget{
+    font-size: large;
+}
+.login-title{
+    color: #18BEBC;
+    font-size: 24px;
+}
+#rose{
+    color: #0E74BC;
+}
+.login-title-container{
+    display: flex;
+    align-items: center;
+}
+.login-page-content-para{
+    color: red;
+    margin-right: 10px;
+}
+.myCourses-page{
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.myCourse-container{
+    background-color: white;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-left: 250px;
+    gap: 20px;
+
+}
+.myCourses{
+    background-color: white;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+}
+.course-details-field{
+    text-align: center;
+   padding: 20px;
+}
+.course-details{
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    background-color: #fefefe;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+    text-align: center;
+}
+.course-details-page{
+    padding-top: 200px;
+    background-color: #4292cb;
+}
+.course-details-field-title{
+    text-align: center;
+    color: #0E74BC;
+}
+#add-course{
+    color: green;
+    font-size: medium;
+    font-weight: 600;
+}
+#num-of-courses{
+    text-align: center;
+    color: #0E74BC;
+}
+.total-amount-title{
+    color: red;
+}
+.pay-amount{
+    color:green;
+    text-align: center;
+}
+.btn-registration,.btn-save-as-draft{
+    border-radius: 8px;
+    background:#4292cb ;
+    border: 0;
+    padding: 10px;
+    color: #FFF;
+    font-size: 20px;
+    width: 100%;
+    margin-right: 10px;
+}
+.available-courses{
+    text-align: center;
+}
+.amount-field-title{
+    font-size: large;
+    font-weight: 600;
+    text-align: center;
+    color: green;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: black;
+}
+#openModalBtn{
+   background-color: cornflowerblue;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fefefe;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  border-color: #0E74BC;
+
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.2);
+    padding: 30px;  
+}
+
+
+.close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 100%;
+    padding: 10px;
+    border: 2px solid brown;
+    margin-left: 10px;
+
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.field{
+    background-color: #18BEBC;
+    color: white;
+}
+.legend{
+    background-color: #0E74BC;
+    padding: 10px;
+    font-size: medium;
+    color: #fefefe;
+}
+#acc-modal-btn,#academic-modal-btn,#contact-modal-btn{
+    background-color: #4292cb;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom:10px ;
+    font-size: medium;
+    color: white;
+    font-weight: 500;
+    border: #FFF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.profile-container{
+        max-width: 1280px;
+        margin-right: auto;
+        margin-left: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.2);
+        padding: 30px; 
+}
+.profile-content{
+    display: flex;
+}
+.profile-part-a{
+    width: 400px;
+}
+.profile-part-b{
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.2);
+    padding: 30px;  
+}
+#header-img{
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+}
+#user-name{
+    color: #fefefe;
+}
+/* ---testing--- */

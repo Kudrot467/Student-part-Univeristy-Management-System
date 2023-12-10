@@ -9,7 +9,7 @@ function validateRegistrationForm(form){
     const bloodgroup = form.bloodgroup.value;
     const religion = form.religion.value;
     const email = form.email.value;
-    const phone = form.Phone/Mobile.value;
+    const phone = form.Phone.value;
     const country = form.country.value;
     const division = form.Division.value;
     const rsc = form.rsc.value;
@@ -311,5 +311,5 @@ if (confirm_password === "") {
 }
 
 return flag;  
-    
+
 }

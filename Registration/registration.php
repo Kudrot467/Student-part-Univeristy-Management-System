@@ -144,6 +144,7 @@ $_SESSION['confirm_password'] = "";
                                     <option value="O-">O-</option>
                                 </select>
                                 <span id="bloodgroupErr"></span>
+                                
                                 <?php echo isset($_SESSION['groupErr']) ? $_SESSION['groupErr'] : "" ?>
                             </td>
                         </tr>

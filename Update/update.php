@@ -33,7 +33,12 @@ if ($conn->connect_error) {
         <?php include('../Header/header2.php') ?>
     </header>
     <main>
-        <form method="post" action="updateAction.php" enctype="multipart/form-data" novalidate>
+        <form
+        class="registration" 
+        method="post"
+        action="updateAction.php" 
+        enctype="multipart/form-data" 
+        novalidate>
             <?php $userEmail = isset($_SESSION['email']) ? $_SESSION['email'] : '';
             $sql = "SELECT * FROM registration WHERE email='$userEmail'";
             $select = mysqli_query($conn, $sql);
@@ -145,7 +150,7 @@ if ($conn->connect_error) {
                                 </tr>
                                 <tr>
                                     <td><label for="Phone/Mobile">Phone/Mobile:</label></td>
-                                    <td>: <input type="text" name="Phone/Mobile" id="Phone/Mobile"
+                                    <td>: <input type="text" name="Phone" id="Phone/Mobile"
                                             value="<?php echo isset($_SESSION['phone']) ? $_SESSION['phone'] : $row['phone'] ?>">
                                         <?php echo isset($_SESSION['phoneErr']) ? $_SESSION['phoneErr'] : "" ?>
                                     </td>

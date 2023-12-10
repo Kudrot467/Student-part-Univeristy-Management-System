@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $bloodgroup = test_input($_POST['bloodgroup']);
     $religion = test_input($_POST['religion']);
     $email = test_input($_POST['email']);
-    $phone = test_input($_POST['Phone/Mobile']);
+    $phone = test_input($_POST['Phone']);
     $country = test_input($_POST['country']);
     $division = test_input($_POST['Division']);
     $rsc = test_input($_POST['rsc']);

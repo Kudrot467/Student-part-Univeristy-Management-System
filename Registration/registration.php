@@ -52,7 +52,7 @@ $_SESSION['confirm_password'] = "";
          method="post" 
          action="registrationAction.php" 
          enctype="multipart/form-data"
-         onsubmit="return validateRegistrationForm(this)" 
+        onsubmit="return validateRegistrationForm(this) "
         novalidate>
             <h1>Registration</h1>
             <?php
@@ -144,7 +144,7 @@ $_SESSION['confirm_password'] = "";
                                     <option value="O-">O-</option>
                                 </select>
                                 <span id="bloodgroupErr"></span>
-                                
+
                                 <?php echo isset($_SESSION['groupErr']) ? $_SESSION['groupErr'] : "" ?>
                             </td>
                         </tr>
@@ -179,7 +179,7 @@ $_SESSION['confirm_password'] = "";
                         </tr>
                         <tr>
                             <td><label for="Phone/Mobile">Phone/Mobile:</label></td>
-                            <td>: <input type="text" name="Phone/Mobile" id="Phone/Mobile"
+                            <td>: <input type="text" name="Phone" id="Phone/Mobile"
                                     value="<?php echo isset($_SESSION['phone']) ? $_SESSION['phone'] : "" ?>">
                                     <span id="phoneErr"></span>
                                 <?php echo isset($_SESSION['phoneErr']) ? $_SESSION['phoneErr'] : "" ?>

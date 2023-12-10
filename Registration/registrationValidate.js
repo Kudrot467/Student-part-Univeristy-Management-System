@@ -61,13 +61,6 @@ function validateRegistrationForm(form){
     
     // console.log(allFields);
 
-    
-    
-           
-
-            // Check if a file is selected
-           
-
 
 const imageErr = document.getElementById('imageErr');
 const firstnameErr = document.getElementById('firstnameErr');

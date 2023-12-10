@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="forgotValidate.js" ></script>
 </head>
 
 <body>
-    <header>
-
-    </header>
     <main>
         <div>
             <fieldset>
                 <legend>Recovery Password</legend>
-                <form method="POST" action="forgotPassAction.php" novalidate>
+                <form method="POST" 
+                action="forgotPassAction.php" 
+                onsubmit="return validateForgotForm(this)"
+                novalidate>
                 <table>
                     <tr>
                         <td><label for="Email">Email</label></td>
@@ -33,10 +34,6 @@
             </fieldset>
         </div>
     </main>
-
-    <body>
-
-    </body>
 </body>
 
 </html>

@@ -14,31 +14,35 @@ if (!isset($_SESSION['email'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="changeValidate.js" ></script>
 </head>
 
 <body>
-    <form method="POST" action="changePassAction.php" novalidate>
+    <form method="POST" action="changePassAction.php" onsubmit="return changeValidateForm(this)" novalidate>
         <fieldset>
             <legend>Provide your valid email and set your password</legend>
             <table>
                 <tr>
-                    <td><label for="previous">Previous password</label></td>
+                    <td><label>Previous password</label></td>
                     <td>: <input type="text" name="previous" id="previous"
                             value="<?php echo isset($_SESSION['previous']) ? $_SESSION['previous'] : "" ?>">
+                            <span id="prevPassErr"></span>
                         <?php echo isset($_SESSION['previousErr']) ? $_SESSION['previousErr'] : "" ?>
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="password">New Password </label></td>
+                    <td><label >New Password </label></td>
                     <td>: <input type="password" name="password" id="password"
                             value="<?php echo isset($_SESSION['password']) ? $_SESSION['password'] : "" ?>">
+                            <span id="passwordErr"></span>
                         <?php echo isset($_SESSION['passwordErr']) ? $_SESSION['passwordErr'] : "" ?>
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="confirm_password">Confirm Password </label></td>
+                    <td><label >Confirm Password </label></td>
                     <td>: <input type="password" name="confirm_password" id="confirm_password"
                             value="<?php echo isset($_SESSION['confirm_password']) ? $_SESSION['confirm_password'] : "" ?>">
+                            <span id="confirm_Err"></span>
                         <?php echo isset($_SESSION['passwordErr']) ? $_SESSION['passwordErr'] : "" ?>
                     </td>
                 </tr>

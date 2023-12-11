@@ -28,7 +28,7 @@ function validateRegistrationForm(form){
     const password = form.password.value;
     const confirm_password = form.confirm_password.value;
     let flag = true;
-    
+    console.log("registration complete")
     // const allFields = {
     //     firstname,
     //     lastname,
@@ -122,7 +122,7 @@ passErr.innerHTML = "";
 confirm_passwordErr.innerHTML = "";
 
 
-if (!fileName) {
+if (fileName==="") {
     imageErr.innerHTML='Upload your image!';
     imageErr.style.color="red";
     flag= false;
@@ -160,7 +160,7 @@ if (d_birth === "") {
     d_birthErr.style.color = "red";
     flag = false;
 }
-if (!gender) {
+if (gender==="") {
     genderErr.innerHTML = 'Please select a gender.';
     genderErr.style.color = "red";
     flag = false;

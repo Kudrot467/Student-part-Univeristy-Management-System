@@ -26,6 +26,7 @@ if ($conn->connect_error) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="updateValidate.js" ></script>
 </head>
 
 <body>
@@ -44,13 +45,13 @@ if ($conn->connect_error) {
             $sql = "SELECT * FROM registration WHERE email='$userEmail'";
             $select = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($select); ?>
-            <h1>Update All Information</h1>
+            <h1 class="regAndUpdateTitle">Update All Information</h1>
             <div class="up-info-container">
                 <div class="general-information">
                     <h3 class="general-title">General Information</h3>
                     <table>
                         <tr>
-                            <td><label for="firstname"><b>First Name</b> </label></td>
+                            <td><label ><b>First Name</b> </label></td>
                             <td>: <input type="text" name="firstname" id="firstname"
                             value="<?php echo isset($_SESSION['firstname']) ? $_SESSION['firstname'] : $row['firstname'] ?>">
                                     <span id="firstnameErr"></span>
@@ -58,7 +59,7 @@ if ($conn->connect_error) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="lastname"><b>Last Name</b> </label></td>
+                            <td><label ><b>Last Name</b> </label></td>
                             <td>: <input type="text" name="lastname" id="lastname"
                             value="<?php echo isset($_SESSION['lastname']) ? $_SESSION['lastname'] : $row['lastname'] ?>">
                                     <span id="lastnameErr"></span>
@@ -66,7 +67,7 @@ if ($conn->connect_error) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="fathername"><b>Father's Name</b> </label> </td>
+                            <td><label ><b>Father's Name</b> </label> </td>
                             <td>: <input type="text" name="fathername" id="fathername"
                             value="<?php echo isset($_SESSION['fathername']) ? $_SESSION['fathername'] : $row['fathername'] ?>">
                                     <span id="fathernameErr"></span>
@@ -74,7 +75,7 @@ if ($conn->connect_error) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="mothername"><b>Mother's Name <b></label> </td>
+                            <td><label ><b>Mother's Name <b></label> </td>
                             <td>: <input type="text" name="mothername" id="mothername"
                             value="<?php echo isset($_SESSION['mothername']) ? $_SESSION['mothername'] : $row['mothername'] ?>">
                                     <span id="mothernameErr"></span>
@@ -83,7 +84,7 @@ if ($conn->connect_error) {
                         </tr>
 
                         <tr>
-                            <td><label for="d_birth"> Date Of Birth </label> </td>
+                            <td><label > Date Of Birth </label> </td>
                             <td>: <input type="date" name="d_birth" id="d_birth"
                             value="<?php echo isset($_SESSION['d_birth']) ? $_SESSION['d_birth'] : $row['dob'] ?>">
                                     <span id="d_birthErr"></span>
@@ -92,7 +93,7 @@ if ($conn->connect_error) {
                         </tr>
 
                         <tr>
-                            <td><label for="gender">Gender:</label></td>
+                            <td><label >Gender:</label></td>
                             <td>:
                                 <input type="radio" id="male" name="gender" value="male"
                                 value="<?php echo isset($_SESSION['gender']) ? $_SESSION['gender'] : $row['gender'] ?>">
@@ -109,7 +110,7 @@ if ($conn->connect_error) {
 
                         </tr>
                         <tr>
-                            <td><label for="bloodgroup">Blood <br> Group </label></td>
+                            <td><label >Blood <br> Group </label></td>
                             <td>:
                                 <select name="bloodgroup" id="bloodgroup"
                                 value="<?php echo isset($_SESSION['bloodgroup']) ? $_SESSION['bloodgroup'] : $row['bloodgroup'] ?>">
@@ -129,7 +130,7 @@ if ($conn->connect_error) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="religion">Religion</label></td>
+                            <td><label >Religion</label></td>
                             <td>:
                                 <select name="religion" id="religion"
                                     value="<?php echo isset($_SESSION['religion']) ? $_SESSION['religion'] : "" ?>">
@@ -150,7 +151,7 @@ if ($conn->connect_error) {
                     <h3 class="general-title">Contact Information</h3>
                     <table>
                         <tr>
-                            <td><label for="Email">Email:</label></td>
+                            <td><label >Email:</label></td>
                             <td>: <input type="text" name="email" id="Email"
                             value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : $row['email'] ?>">
                                     <span id="emailErr"></span>
@@ -158,8 +159,8 @@ if ($conn->connect_error) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="Phone/Mobile">Phone/Mobile:</label></td>
-                            <td>: <input type="text" name="Phone" id="Phone/Mobile"
+                            <td><label >Phone/Mobile:</label></td>
+                            <td>: <input type="text" name="Phone" id="Phone"
                             value="<?php echo isset($_SESSION['phone']) ? $_SESSION['phone'] : $row['phone'] ?>">
                                     <span id="phoneErr"></span>
                                 <?php echo isset($_SESSION['phoneErr']) ? $_SESSION['phoneErr'] : "" ?>
@@ -167,7 +168,7 @@ if ($conn->connect_error) {
                         </tr>
                         <tr>
                             <td>
-                                <label for="">Address:</label>
+                                <label >Address:</label>
                             </td>
                             <td>
                                 <p>
@@ -238,14 +239,14 @@ if ($conn->connect_error) {
                         <div>
                             <h4>SSC Information</h4>
                     <tr>
-                        <td><label for="ssc">SSC</label></td>
+                        <td><label >SSC</label></td>
                         <td>: <input type="text" placeholder="enter ssc passing year" name="ssc" id="ssc"
                         value="<?php echo isset($_SESSION['ssc']) ? $_SESSION['ssc'] :  $row['ssc'] ?>">
                                 <span id="sscErr"></span>
                             <?php echo isset($_SESSION['sscErr']) ? $_SESSION['sscErr'] : "" ?>
                         </td>
                         <td>
-                            <select name="sscDepartment" id=""
+                            <select name="sscDepartment" id="sscDepartment"
                                 value="<?php echo isset($_SESSION['sscDepartment']) ? $_SESSION['sscDepartment'] : "" ?>">
                                 <option value="" selected>Select department</option>
                                 <option value="Science">Science</option>
@@ -257,23 +258,23 @@ if ($conn->connect_error) {
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="sscInstitution">Institution </label></td>
-                        <td>: <input type="institution" placeholder="enter your institution name" name="sscInstitution"
-                                id="institution"
+                        <td><label>Institution </label></td>
+                        <td>: <input type="text" placeholder="enter your institution name" name="sscInstitution"
+                                id="sscInstitution"
                                 value="<?php echo isset($_SESSION['sscInstitution']) ? $_SESSION['sscInstitution'] :  $row['sscInstitution'] ?>">
                                 <span id="sscInstitutionErr"></span>
                             <?php echo isset($_SESSION['institutionErr']) ? $_SESSION['institutionErr'] : "" ?>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="cgpa">CGPA </label></td>
-                        <td>: <input type="text" placeholder="0.00" name="sscCgpa" id="cgpa"
+                        <td><label>CGPA </label></td>
+                        <td>: <input type="text" placeholder="0.00" name="sscCgpa" id="sscCgpa"
                         value="<?php echo isset($_SESSION['sscCgpa']) ? $_SESSION['sscCgpa'] :  $row['sscCgpa'] ?>">
                                 <span id="sscCgpaErr"></span>
                             <?php echo isset($_SESSION['cgpaErr']) ? $_SESSION['cgpaErr'] : "" ?>
                         </td>
                         <td>
-                            <select name="sscBoard" id="Division"
+                            <select name="sscBoard" id="sscBoard"
                                 value="<?php echo isset($_SESSION['sscBoard']) ? $_SESSION['sscBoard'] : "" ?>">
                                 <option value="" selected>Select Board</option>
                                 <option value="Dhaka">Dhaka</option>
@@ -294,14 +295,14 @@ if ($conn->connect_error) {
                 <td>
                     <h4>HSC Information</h4>
                     <tr>
-                        <td><label for="hsc">HSC</label></td>
+                        <td><label >HSC</label></td>
                         <td>: <input type="text" placeholder="enter hsc passing year" name="hsc" id="hsc"
                         value="<?php echo isset($_SESSION['hsc']) ? $_SESSION['hsc'] : $row['hsc'] ?>">
                                 <span id="hscErr"></span>
                             <?php echo isset($_SESSION['hscErr']) ? $_SESSION['hscErr'] : "" ?>
                         </td>
                         <td>
-                            <select name="hscDepartment" id=""
+                            <select name="hscDepartment" id="hscDepartment"
                                 value="<?php echo isset($_SESSION['hscDepartment']) ? $_SESSION['hscDepartment'] : "" ?>">
                                 <option value="" selected>Select department</option>
                                 <option value="Science">Science</option>
@@ -313,23 +314,23 @@ if ($conn->connect_error) {
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="institution">Institution </label></td>
-                        <td>: <input type="institution" placeholder="enter your institution name" name="hscInstitution"
-                                id="institution"
+                        <td><label >Institution </label></td>
+                        <td>: <input type="text" placeholder="enter your institution name" name="hscInstitution"
+                                id="hscInstitution"
                                 value="<?php echo isset($_SESSION['hscInstitution']) ? $_SESSION['hscInstitution'] : $row['hscInstitution'] ?>">
                                 <span id="hscInstitutionErr"></span>
                             <?php echo isset($_SESSION['institutionErr']) ? $_SESSION['institutionErr'] : "" ?>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="cgpa">CGPA </label></td>
-                        <td>: <input type="text" placeholder="0.00" name="hscCgpa" id="cgpa"
+                        <td><label >CGPA </label></td>
+                        <td>: <input type="text" placeholder="0.00" name="hscCgpa" id="hscCgpa"
                         value="<?php echo isset($_SESSION['hscCgpa']) ? $_SESSION['hscCgpa'] :  $row['hscCgpa'] ?>">
                                 <span id="hscCgpaErr"></span>
                             <?php echo isset($_SESSION['cgpaErr']) ? $_SESSION['cgpaErr'] : "" ?>
                         </td>
                         <td>
-                            <select name="hscBoard" id="Division"
+                            <select name="hscBoard" id="hscBoard"
                                 value="<?php echo isset($_SESSION['hscBoard']) ? $_SESSION['hscBoard'] : "" ?>">
                                 <option value="" selected>Select Board</option>
                                 <option value="Dhaka">Dhaka</option>
@@ -354,7 +355,7 @@ if ($conn->connect_error) {
                 <h3 class="general-title">Account information</h3>
                 <table>
                     <tr>
-                        <td><label for="username">Username </label></td>
+                        <td><label >Username </label></td>
                         <td>: <input type="text" name="username" id="Username"
                         value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] :  $row['username'] ?>">
                                 <span id="usernameErr"></span>
@@ -362,7 +363,7 @@ if ($conn->connect_error) {
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="password">Password </label></td>
+                        <td><label >Password </label></td>
                         <td>: <input type="password" name="password" id="password"
                         value="<?php echo isset($_SESSION['password']) ? $_SESSION['password'] :  $row['password'] ?>">
                                 <span id="passwordErr"></span>
@@ -370,7 +371,7 @@ if ($conn->connect_error) {
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="confirm_password">Confirm Password </label></td>
+                        <td><label>Confirm Password </label></td>
                         <td>: <input type="password" name="confirm_password" id="confirm_password"
                         value="<?php echo isset($_SESSION['confirm_password']) ? $_SESSION['confirm_password'] : $row['password']?>">
                                 <span id="confirm_passwordErr"></span>

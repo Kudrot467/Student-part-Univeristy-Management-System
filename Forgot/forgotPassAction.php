@@ -43,7 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         // $sql = "SELECT * FROM registration WHERE email='$email'";
         // $query = mysqli_query($conn, $sql);
         // $row = mysqli_fetch_array($query);
-        
+    }
+       
+
+    if ($flag) {
+
         $sql = "SELECT * FROM registration WHERE email=?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $email);
@@ -82,10 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         } catch (Exception $e) {
             echo 'Email send failed: ' . $mail->ErrorInfo;
         }
-    }
 
 
-    if ($flag) {
         header("../Login/login.php");
     } else {
         header("forgotPass.php");

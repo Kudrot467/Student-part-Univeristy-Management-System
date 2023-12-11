@@ -1,5 +1,4 @@
 function validateUpdateForm(form) {
-  const fileName = form.image.value;
   const firstname = form.firstname.value;
   const lastname = form.lastname.value;
   const fathername = form.fathername.value;
@@ -28,6 +27,8 @@ function validateUpdateForm(form) {
   const password = form.password.value;
   const confirm_password = form.confirm_password.value;
   let flag = true;
+
+  console.log("updated");
   const firstnameErr = document.getElementById("firstnameErr");
   const lastnameErr = document.getElementById("lastnameErr");
   const fathernameErr = document.getElementById("fathernameErr");
@@ -230,6 +231,28 @@ function validateUpdateForm(form) {
     usernameErr.style.color = "red";
     flag = false;
   }
+
+
+  const special_Character = /[!@#$%^&*()_+{}[\]:;<>,.?~]/;
+
+  if (password === "") {
+    passErr.innerHTML = "Please provide your password.";
+    passErr.style.color = "red";
+    flag = false;
+  } else if (password.length <= 8 && !special_Character.test(password)) {
+    passErr.innerHTML = "Please give a special character and password length more than 8.";
+    passErr.style.color = "red";
+    flag = false;
+  } else {
+      if (password === confirm_password) {
+         console.log("matched");
+      } else { 
+        passErr.innerHTML = "Password and confirm password do not match";
+      passErr.style.color = "red";
+      flag = false;
+      }
+  }
+
 
   if (password === "") {
     passErr.innerHTML = "Please enter a password.";

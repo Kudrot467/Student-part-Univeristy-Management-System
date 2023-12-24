@@ -27,6 +27,36 @@ function changeValidateForm(pform){
         flag=false;
     }
 
+    if(flag) {
+        let xhttp = new XMLHttpRequest();
+        xhttp.open('POST', 'changePassAction.php', true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        let std = {
+            'prevPass':prevPass,
+            'password': password 
+        }
+        let data = JSON.stringify(std);
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    if (this.responseText === "Success") {
+                        // let txt = document.getElementById('msg');
+                        // txt.innerHTML = "Password Changed Successfully";
+                        // txt.style.color = "green";
+                        // location.reload();
+                        document.getElementById('msg').innerHTML = "Password Changed Successfully";
+                        return true;
+                    } else {
+                        document.getElementById('msg').innerHTML = "Error to change password";
+                    }
+                } else {
+                    alert("Error: " + this.status);
+                }
+            }
+        };
+        xhttp.send('std=' + data);
+        return false;
+    }
 
     return flag;
 

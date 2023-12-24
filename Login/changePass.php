@@ -1,9 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['email'])) {
-    // Redirect to the login page if not logged in
+if (!isset($_SESSION['authenticate']) || $_SESSION['authenticate'] !== true) {
     header("Location: ../Login/login.php");
-    exit();
+	exit();
 }
 ?>
 <!DOCTYPE html>
@@ -18,13 +17,21 @@ if (!isset($_SESSION['email'])) {
 </head>
 
 <body>
-    <form method="POST" action="changePassAction.php" onsubmit="return changeValidateForm(this)" novalidate>
+<?php include('../Header/header2.php') ?>
+   <div class="changePass">
+   <form  
+     class="login" 
+     method="POST" 
+     action="changePassAction.php" 
+     onsubmit="return changeValidateForm(this)" 
+     novalidate>
         <fieldset>
             <legend>Provide your valid email and set your password</legend>
             <table>
+                <span id="msg"></span>
                 <tr>
                     <td><label>Previous password</label></td>
-                    <td>: <input type="text" name="previous" id="previous"
+                    <td>:<input type="text" name="previous" id="previous"
                             value="<?php echo isset($_SESSION['previous']) ? $_SESSION['previous'] : "" ?>">
                             <span id="prevPassErr"></span>
                         <?php echo isset($_SESSION['previousErr']) ? $_SESSION['previousErr'] : "" ?>
@@ -52,11 +59,13 @@ if (!isset($_SESSION['email'])) {
                 </tr>
                 <tr>
                     <td></td>
-                    <td><a href="login.php">Login Now...</a></td>
+                    <!-- <td><a href="login.php">Login Now...</a></td> -->
                 </tr>
             </table>
         </fieldset>
     </form>
+   </div>
+    <?php include('../Footer/footer2.php') ?>
 </body>
 
 </html>

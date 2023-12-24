@@ -14,8 +14,9 @@
     <nav class="nav-items">
         <h1 class="nav-title">
             ROSE UNIVERSITY
+            <!-- WHEELY -->
         </h1>
-        <img id="nav-img" width="100px" height="100px" src="./logo-without-name.png" alt="">
+       <img id="nav-img" width="100px" height="100px" src="./logo-without-name.png" alt="">
         <ul class="nav-items">
             <li><a href="./Academics/details.php">Academics</a></li>
             <li><a href="./Contact/contact.php">Contact</a></li>

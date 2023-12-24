@@ -13,9 +13,12 @@
 <body>
     <nav class="nav-items">
         <h1 class="nav-title">
-            ROSE UNIVERSITY
+            <!-- ROSE UNIVERSITY -->
+            WHEELY
         </h1>
         <img id="nav-img" width="100px" height="100px"src="../logo-without-name.png" alt="">
+        <!-- <img id="nav-img" width="100px" height="100px"src="https://i.ibb.co/Bnn1dXL/Black-Modern-Car-Service-Logo.png" alt=""> -->
+        
             <ul >
             <li><a href="../home.php">Home</a></li>
             <li><a href="../Academics/details.php">Academics</a></li>

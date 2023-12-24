@@ -17,7 +17,8 @@ $conn = new mysqli($servername, $user, $password, $db);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$id = $_SESSION['id'];
+$id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
+
 echo $id;
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if (!empty($_FILES['image']['name'])) {

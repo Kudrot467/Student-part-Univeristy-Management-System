@@ -28,7 +28,9 @@ session_start();
              novalidate>
                    <div class="login-title-container">
                    <img width="100px" height="100px" src="../logo-without-name.png" alt="">
+                   <!-- <img width="100px" height="100px" src="https://i.ibb.co/Bnn1dXL/Black-Modern-Car-Service-Logo.png" alt=""> -->
                    <h1 class="login-title"> <span id="rose">ROSE</span> UNIVERSITY</h1>
+                   <!-- <h1 class="login-title"> <span id="rose">WHEE</span>LY</h1> -->
                     <!-- <h2 class="login-title">Login!</h2> -->
                    </div>
                 <div>
